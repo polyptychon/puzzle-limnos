@@ -5,9 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const packageJSON = require('./package.json')
+const CompressionPlugin = require("compression-webpack-plugin")
+const convert = require('object-array-converter')
 
 module.exports = env => {
   env = env || {};
+  let dependencies = convert.toArray(packageJSON.dependencies)
+    .map(({key})=>key)
   const specifyProp = (add, value) => add ? value : undefined
   const ifProd = value => specifyProp(env.prod, value)
   const ifDev = value => specifyProp(!env.prod, value)
@@ -26,7 +30,7 @@ module.exports = env => {
   const indexPath = env.prod?'../':''
   return removeEmpty({
     entry: removeEmpty({
-      vendor: ifProd(['react', 'react-dom', 'redux', 'redux-thunk', 'react-redux']),
+      vendor: ifProd(dependencies),
       app: removeEmpty([
         ifDev('webpack-hot-middleware/client?reload=true'),
         './js/index.js'
@@ -42,11 +46,12 @@ module.exports = env => {
     devtool: ifDev('eval-source-map'),
     module: {
       loaders: removeEmpty([
-        {test: /\.js$/, loader: 'babel', query: { "presets": removeEmpty(["es2015-webpack", "stage-2", "react", ifDev("react-hmre")]) }, exclude: /node_modules/},
+        {test: /\.js$/, loader: 'babel', query: { "presets": removeEmpty(["es2015", "stage-2", "react", ifDev("react-hmre")]), "plugins": ["transform-class-properties"] }, exclude: /node_modules/},
         {test: /\.jade$/, loader: 'jade'},
+        ifProd({test: /\.css$/, loader: 'style!css?modules', include: /flexboxgrid/}),
         ifDev({test: /\.css$/,   loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'}),
         ifDev({test: /\.scss$/,  loaders: ["style", "css", "sass?sourceMap"]}),
-        ifProd({test: /\.css$/,   loader: ExtractTextPlugin.extract("style-loader", "css-loader")}),
+        // ifProd({test: /\.css$/,   loader: ExtractTextPlugin.extract("style-loader", "css-loader")}),
         ifProd({test: /\.scss$/,  loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}),
         {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
         {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"},
@@ -54,12 +59,6 @@ module.exports = env => {
         {test: /\.(png|gif|mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"},
         ifProd({ test: /\.js$/, loader: "strip-loader?strip[]=console.log" })
       ])
-    },
-    resolve: {
-      modules: [
-        resolve(__dirname,'src/js'),
-        'node_modules'
-      ]
     },
     recordsPath: resolve(__dirname, './webpack-records.json'),
     plugins: removeEmpty([
@@ -76,6 +75,13 @@ module.exports = env => {
       })),
       ifProd(new webpack.optimize.CommonsChunkPlugin({name:'vendor'})),
       ifProd(new ExtractTextPlugin('bundle.[name]-[hash].min.css')),
+      ifProd(new CompressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })),
       new HtmlWebpackPlugin({
         filename: `${indexPath}index.html`,
         favicon: './images/favicon.png',
@@ -89,7 +95,7 @@ module.exports = env => {
       ifDev(new webpack.HotModuleReplacementPlugin()),
       ifDev(new webpack.NoErrorsPlugin()),
       new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(env.prod ?'production':'development')}),
-      ifProd(new OfflinePlugin({ServiceWorker:{events:true}}))
+      ifProd(new OfflinePlugin({ServiceWorker:{events:true},AppCache:false}))
     ])
   })
 }
