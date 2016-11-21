@@ -1,2 +1,2 @@
 #puzzle
-https://puzzle-49a1d.firebaseapp.com/
+https://polyptychon.github.io/puzzle-limnos/
