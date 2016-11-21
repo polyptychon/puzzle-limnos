@@ -5,22 +5,12 @@ require('./styles.scss')
 
 const Home = ()=> (
   <div className="home page">
-    <div className="left-panel">
-      <div className="glyphicon logo-icon" />
-      <div className="title">Test</div>
-      <div className="description">
-        <br />
-        <br />
-        <Link to="quiz" className="btn btn-primary btn-lg">Test</Link>
-      </div>
-    </div>
-    <div className="right-panel">
-      <div className="description">Test
-        <br />
-        <br />
-        <Link to="puzzle" className="btn btn-primary btn-lg">Play Puzzle</Link>
-      </div>
-    </div>
+    <Link to="puzzle" className="left-panel">
+      <h1>Λαικές κατοικίες</h1>
+    </Link>
+    <Link to="puzzle" className="right-panel">
+      <h1>Αστικές κατοικίες</h1>
+    </Link>
   </div>
 )
 

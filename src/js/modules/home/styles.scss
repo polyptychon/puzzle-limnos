@@ -3,3 +3,24 @@
   background-size: cover;
   padding: 0;
 }
+.left-panel, .right-panel {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  margin-top: -60px;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid white;
+  font-weight: normal;
+  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
