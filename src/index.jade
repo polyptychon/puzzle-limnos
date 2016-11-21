@@ -12,7 +12,7 @@ html(lang='en')
         link(href=cssFile rel="stylesheet")
   body
     #root
-      if htmlWebpackPlugin.options.NODE_ENV==="production"
-        each jsFile in htmlWebpackPlugin.files.js
-          if (!new RegExp(/(sw|bootstrap)/).test(jsFile))
-            script(type="text/javascript" src=jsFile)
+    if htmlWebpackPlugin.options.NODE_ENV==="production"
+      each jsFile in htmlWebpackPlugin.files.js
+        if (!new RegExp(/(sw|bootstrap)/).test(jsFile))
+          script(type="text/javascript" src=jsFile)
