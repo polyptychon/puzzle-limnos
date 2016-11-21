@@ -25,12 +25,15 @@
     position: relative;
     bottom: 200px;
     border-radius: 0;
-    padding: 10px 15px;
+    padding: 12px 25px;
     background-color: #323232;
     border: none;
     color: white;
     font-size: 15px;
     text-decoration: none !important;
+    &:hover {
+      background-color: #000;
+    }
   }
 }
 .title {
