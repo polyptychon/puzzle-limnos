@@ -1,5 +1,10 @@
 /*eslint indent: */
-import {PUZZLE_PART_POSITION, INIT_PUZZLE, SHUFFLE_PUZZLE, IS_PUZZLE_SOLVED} from '../actions'
+import  {
+  PUZZLE_PART_POSITION,
+  IS_PUZZLE_SOLVED,
+  SHUFFLE_PUZZLE,
+  INIT_PUZZLE
+} from './actionTypes'
 import PuzzleParts from './PuzzleParts'
 
 const p = new PuzzleParts()
@@ -8,7 +13,7 @@ export const INITIAL_STATE = {
   isPuzzleSolved: false
 }
 
-export default function puzzle(state = INITIAL_STATE, action) {
+export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case PUZZLE_PART_POSITION:
       return {

@@ -1,7 +1,7 @@
 {
-  "name": "flights",
+  "name": "Puzzle",
   "version": "1.0.0",
-  "description": "Build a tool (website/mobile app/etc) where a user can input up to 5 destinations, a date within the next 14 days and their current location that will then lookup and display weather forecasts for the locations/dates (http://openweathermap.org/) as well as the cheapest flight price (https://developers.google.com/qpx-express/).",
+  "description": "Puzzle",
   "homepage": "https://github.com/harrissidiropoulos/flights",
   "license": "MIT",
   "author": {
@@ -17,8 +17,10 @@
     "classnames": "^2.2.5",
     "isomorphic-fetch": "2.2.1",
     "react": "15.1.0",
+    "react-addons-css-transition-group": "^15.4.0",
     "react-dom": "15.1.0",
     "react-redux": "4.4.5",
+    "react-router": "^3.0.0",
     "redux": "3.5.2",
     "redux-thunk": "^2.1.0"
   },

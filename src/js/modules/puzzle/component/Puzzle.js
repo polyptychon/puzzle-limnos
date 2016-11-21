@@ -1,8 +1,6 @@
 import React, {Component,PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {checkPuzzlePartPosition, initAndShufflePuzzle} from '../actions'
-import OfflineUpdate from './offline-update'
-import offlineProps from './offline-update/offline-props'
 import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 
 require('./styles.scss')
@@ -11,7 +9,7 @@ const images = [
   require('./images/image002.jpg')
 ]
 
-export class Main extends Component {
+export class Puzzle extends Component {
   constructor(props) {
     super(props);
     props.shufflePuzzle()
@@ -19,9 +17,8 @@ export class Main extends Component {
   render() {
     const {parts, partClick, isPuzzleSolved, shufflePuzzle} = this.props
     return (
-      <div>
-        <OfflineUpdate {...offlineProps()}/>
-        <div className={isPuzzleSolved?'container solved':'container'}>
+      <div className="game page">
+        <div className={isPuzzleSolved?'solved':''}>
           <ul className="puzzle" style={getBgImageStyles(isPuzzleSolved, images)}>
             {
               parts.map((part,index)=> (
@@ -40,7 +37,7 @@ export class Main extends Component {
   }
 }
 
-Main.propTypes = {
+Puzzle.propTypes = {
   isPuzzleSolved: PropTypes.bool.isRequired,
   parts: PropTypes.array.isRequired,
   shufflePuzzle: PropTypes.func,
@@ -53,4 +50,4 @@ export const mapDispatchToProps = (dispatch) => ({
   shufflePuzzle: ()=> dispatch(initAndShufflePuzzle())
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(Main)
+export default connect(mapStateToProps,mapDispatchToProps)(Puzzle)

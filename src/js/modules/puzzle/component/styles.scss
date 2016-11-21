@@ -1,13 +1,6 @@
 $w: 196px;
 $h: 196px;
-.container {
-  width: 800px;
-  height: 600px;
-  padding: 15px;
-  margin: 0 auto;
-  background: white;
-  position: relative;
-}
+
 .puzzle {
   list-style: none;
   display: table;
@@ -81,3 +74,25 @@ $h: 196px;
   font-weight: bold;
   font-size: 40px;
 }
+
+.game {
+  &.top-enter {
+     top: 100%;
+     transition: top .5s;
+     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
+   }
+
+   &.top-enter.top-enter-active {
+     top: 0;
+   }
+
+   &.top-leave {
+     top: 0;
+     transition: top .5s;
+     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
+   }
+
+   &.top-leave.top-leave-active {
+     top: 100%;
+   }
+ }
