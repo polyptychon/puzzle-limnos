@@ -42,22 +42,22 @@
 
 .page {
   &.top-enter {
-    top: -100%;
-    transition: top .5s;
+    left: -100%;
+    transition: left .5s;
     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
   }
 
   &.top-enter.top-enter-active {
-    top: 0;
+    left: 0;
   }
 
   &.top-leave {
-    top: 0;
-    transition: top .5s;
+    left: 0;
+    transition: left .5s;
     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
   }
 
   &.top-leave.top-leave-active {
-    top: -100%;
+    left: -100%;
   }
 }

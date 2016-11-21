@@ -3,24 +3,45 @@
   background-size: cover;
   padding: 0;
 }
+.left-panel {
+  background-color: #a6794b;
+}
+.right-panel {
+  background-color: #3b8fbf;
+}
 .left-panel, .right-panel {
   width: 50%;
   height: 100%;
   float: left;
+  overflow: hidden;
+  .bg {
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
-
-h1 {
+.title {
   position: absolute;
   top: 50%;
   width: 50%;
-  margin-top: -60px;
-  text-align: center;
-  padding-bottom: 15px;
-  border-bottom: 1px solid white;
-  font-weight: normal;
+  margin-top: -90px;
   color: white;
-  a {
-    text-decoration: none;
-    color: white;
+  hr {
+    border-top: none;
+    border-color: white;
+    margin-bottom: 20px;
   }
+}
+h1, h5 {
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 60px;
+}
+h5 {
+  font-size: 24px;
 }
