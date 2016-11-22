@@ -24,22 +24,6 @@
   }
 }
 
-
-@-webkit-keyframes zoomAndFadeOut {
-  0% {
-    transform: scale(0,0);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(3,3);
-    opacity: .7;
-  }
-  100% {
-    transform: scale(1.5,1.5);
-    opacity: 0;
-  }
-}
-
 .page {
   &.top-enter {
     left: -100%;

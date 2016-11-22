@@ -1,29 +1,49 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
+import Panel from '../panel'
 import OfflineUpdate, {offlineProps}  from '../offline-update'
 
 require('./styles.scss')
+require('./template.scss')
 
-const Template = ({ children, location })=> (
-  <div>
-    <OfflineUpdate {...offlineProps()} />
-    <div className="container">
-      <ReactCSSTransitionGroup
-        component="div"
-        className="pages"
-        transitionName="top"
-        transitionAppear={true}
-        transitionAppearTimeout={100}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}>
+const images = [
+  require('./images/laikes_general_image.jpg'),
+  require('./images/astikes_general_image.jpg')
+]
 
-        {React.cloneElement(children, {
-          key: location.pathname
-        })}
+const Template = ({ children, location })=> {
+  const pathname = location.pathname.substring(1)
+  const paths = pathname.split('/').join(' ')
+  const buttonLabel = pathname===""?'Επιλογή':'Έναρξη'
+  return (
+    <div>
+      <OfflineUpdate {...offlineProps()} />
+      <div className="container">
+        <div className="pages">
+          <div className={`home page ${paths}`}>
+            <Panel title="Λαϊκές" position="left" image={images[0]}
+              buttonLabel={buttonLabel} link="/laikes"/>
+            <Panel title="Αστικές" position="right" image={images[1]}
+              buttonLabel={buttonLabel} link="/astikes"/>
+          </div>
+          <ReactCSSTransitionGroup
+            component="div"
+            className="content"
+            transitionName="top"
+            transitionAppear={true}
+            transitionAppearTimeout={100}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
 
-      </ReactCSSTransitionGroup>
+            {React.cloneElement(children, {
+              key: location.pathname
+            })}
+
+          </ReactCSSTransitionGroup>
+        </div>
+      </div>
     </div>
-  </div>
-)
-
+  )
+}
 export default Template
