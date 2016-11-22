@@ -1,23 +1,20 @@
-export const getStyles = ({x,y,w,h,bx,by}, images)=> {
+export const getStyles = ({x,y,w,h,bx,by}, image)=> {
   return {
     left:`${x}px`,
     top:`${y}px`,
-    ...getBgStyles(bx,by, images),
+    ...getBgStyles(bx,by, image),
     ...getSizeStyles(w,h)
   }
 }
-export const getBgImageStyles = (solved=true, images=[])=> {
-  if (images.length==0) {
-    throw(new Error('Images array must not be empty'))
-  }
+export const getBgImageStyles = (solved=true, image)=> {
   return solved ? {
-    backgroundImage: `url(${images[0]})`
+    backgroundImage: `url(${image})`
   } : {}
 }
-export const getBgStyles = (x,y, images)=> {
+export const getBgStyles = (x,y, image)=> {
   return {
     backgroundPosition: `-${x}px -${y}px`,
-    ...getBgImageStyles(undefined, images)
+    ...getBgImageStyles(undefined, image)
   }
 }
 export const getSizeStyles = (w,h)=> {
