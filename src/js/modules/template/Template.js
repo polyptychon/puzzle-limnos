@@ -16,6 +16,7 @@ const Template = ({ children, location })=> {
   const pathname = location.pathname.substring(1)
   const paths = pathname.split('/').join(' ')
   const buttonLabel = pathname===""?'Επιλογή':'Έναρξη'
+  const buttonLink = pathname===""?'':'/puzzle'
   const pageContentClass = pathname===""?'empty':''
   return (
     <div>
@@ -24,9 +25,9 @@ const Template = ({ children, location })=> {
         <div className="pages">
           <div className={`page-container ${paths}`}>
             <Panel title="Λαϊκές" position="left" image={images[0]}
-              buttonLabel={buttonLabel} link="/laikes"/>
+              buttonLabel={buttonLabel} link={`/laikes${buttonLink}`}/>
             <Panel title="Αστικές" position="right" image={images[1]}
-              buttonLabel={buttonLabel} link="/astikes"/>
+              buttonLabel={buttonLabel} link={`/astikes${buttonLink}`}/>
           </div>
           <ReactCSSTransitionGroup
             component="div"

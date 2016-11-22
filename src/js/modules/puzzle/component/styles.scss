@@ -1,15 +1,17 @@
 $w: 196px;
 $h: 196px;
 
-.puzzle {
+.puzzle-container {
   list-style: none;
   display: table;
   position: relative;
-  width: 800px;
-  height: 600px;
+  width: 600px;
+  height: 450px;
+  top: 15px;
+  left: 100px;
   margin: 0;
   padding: 0;
-  background: #CCC;
+  background: transparent;
   li {
     float: left;
     margin: 0;
@@ -77,22 +79,22 @@ $h: 196px;
 
 .game {
   &.top-enter {
-     left: 100%;
-     transition: left .5s;
-     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
-   }
+    opacity: 0;
+    transition: all .5s;
+    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
+  }
 
-   &.top-enter.top-enter-active {
-     left: 0;
-   }
+  &.top-enter.top-enter-active {
+    opacity: 1;
+  }
 
-   &.top-leave {
-     left: 0;
-     transition: left .5s;
-     transition-timing-function: cubic-bezier(.445,.05,.55,.95);
-   }
+  &.top-leave {
+    opacity: 1;
+    transition: all .1s;
+    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
+  }
 
-   &.top-leave.top-leave-active {
-     left: 100%;
-   }
- }
+  &.top-leave.top-leave-active {
+    opacity: 0;
+  }
+}

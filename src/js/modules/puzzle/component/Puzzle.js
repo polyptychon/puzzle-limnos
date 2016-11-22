@@ -19,7 +19,7 @@ export class Puzzle extends Component {
     return (
       <div className="game page">
         <div className={isPuzzleSolved?'solved':''}>
-          <ul className="puzzle" style={getBgImageStyles(isPuzzleSolved, images)}>
+          <ul className="puzzle-container" style={getBgImageStyles(isPuzzleSolved, images)}>
             {
               parts.map((part,index)=> (
                 <li key={index} style={getStyles(part, images)} className={part.empty?'empty':''}>

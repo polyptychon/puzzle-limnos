@@ -1,5 +1,5 @@
 export default class PuzzleParts {
-  constructor(columns=4, rows=3, width=800, height=600, gap=4) {
+  constructor(columns=4, rows=3, width=600, height=450, gap=4) {
     this.gap = gap;
     this.columns = columns;
     this.rows = rows;
