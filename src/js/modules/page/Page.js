@@ -14,7 +14,7 @@ require('./styles.scss')
 const Page = ({image, text}) => (
   <div className="content">
     <div className="content-image">
-      <img src={image || images[0]} alt={image || images[0]} />
+      <img src={image || images[1]} alt={image || images[0]} />
     </div>
     <div className="content-text">{text || txt}</div>
   </div>
