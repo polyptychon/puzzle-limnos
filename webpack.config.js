@@ -26,7 +26,7 @@ module.exports = env => {
     }
     return obj;
   }
-  const assetsPath = env.prod?'assets/':''
+  const assetsPath = env.prod?'/assets/':'/'
   const indexPath = env.prod?'../':''
   return removeEmpty({
     entry: removeEmpty({
