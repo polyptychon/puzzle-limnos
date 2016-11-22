@@ -21,7 +21,7 @@ const Template = ({ children, location })=> {
       <OfflineUpdate {...offlineProps()} />
       <div className="container">
         <div className="pages">
-          <div className={`home page ${paths}`}>
+          <div className={`page-container ${paths}`}>
             <Panel title="Λαϊκές" position="left" image={images[0]}
               buttonLabel={buttonLabel} link="/laikes"/>
             <Panel title="Αστικές" position="right" image={images[1]}
