@@ -12,10 +12,17 @@
   overflow: hidden;
   height: 600px;
 }
-.page, .page-container {
+.page-container {
   width: 800px;
   height: 600px;
   position: absolute;
+
+}
+.page-content {
+  position: absolute;
+  width: 800px;
+  height: 460px;
+  top: 67px;
   transition: .5s all ease-out;
   transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   &.active {
@@ -23,25 +30,6 @@
     z-index: 1000;
   }
 }
-
-.page {
-  &.top-enter {
-    left: -100%;
-    transition: left .5s;
-    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
-  }
-
-  &.top-enter.top-enter-active {
-    left: 0;
-  }
-
-  &.top-leave {
-    left: 0;
-    transition: left .5s;
-    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
-  }
-
-  &.top-leave.top-leave-active {
-    left: -100%;
-  }
+.empty {
+  pointer-events: none;
 }

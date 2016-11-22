@@ -16,6 +16,7 @@ const Template = ({ children, location })=> {
   const pathname = location.pathname.substring(1)
   const paths = pathname.split('/').join(' ')
   const buttonLabel = pathname===""?'Επιλογή':'Έναρξη'
+  const pageContentClass = pathname===""?'empty':''
   return (
     <div>
       <OfflineUpdate {...offlineProps()} />
@@ -29,7 +30,7 @@ const Template = ({ children, location })=> {
           </div>
           <ReactCSSTransitionGroup
             component="div"
-            className="content"
+            className={`page-content ${pageContentClass}`}
             transitionName="top"
             transitionAppear={true}
             transitionAppearTimeout={100}
