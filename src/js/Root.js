@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import {Template, DummyPage, Puzzle, Page} from './modules'
-import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 const Root = ({store})=> (
   <Provider store={store}>

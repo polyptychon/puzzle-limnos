@@ -5,8 +5,11 @@ import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 
 require('./styles.scss')
 const images = [
-  require('./images/image001.jpg'),
-  require('./images/image002.jpg')
+  require('./images/astikes_image1.jpg'),
+  require('./images/astikes_image2.jpg'),
+  require('./images/astikes_image3.jpg'),
+  require('./images/laikes_image1.jpg'),
+  require('./images/laikes_image2.jpg')
 ]
 
 export class Puzzle extends Component {
