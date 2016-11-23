@@ -7,19 +7,15 @@ const Root = ({store})=> (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Template.default}>
+        <IndexRedirect to="el" />
+        <Route path=":lang">
         <IndexRoute component={DummyPage.default}/>
-        <Route path="laikes">
-          <IndexRoute component={Page.default}/>
-          <Route path="puzzle" component={Puzzle.default}>
-            <IndexRedirect to="1" />
-            <Route path=":index" component={Puzzle.default} />
-          </Route>
-        </Route>
-        <Route path="astikes">
-          <IndexRoute component={Page.default}/>
-          <Route path="puzzle" component={Puzzle.default}>
-            <IndexRedirect to="1" />
-            <Route path=":index" component={Puzzle.default} />
+          <Route path=":category">
+            <IndexRoute component={Page.default}/>
+            <Route path="puzzle" component={Puzzle.default}>
+              <IndexRedirect to="1" />
+              <Route path=":index" component={Puzzle.default} />
+            </Route>
           </Route>
         </Route>
       </Route>

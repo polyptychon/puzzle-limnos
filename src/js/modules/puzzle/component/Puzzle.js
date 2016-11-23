@@ -25,13 +25,9 @@ export class Puzzle extends Component {
   }
   getImage() {
     const {location} = this.props
+    const {category, index} = this.props.params
     const paths = location.pathname.split('/')
     const path = paths.slice(0,paths.length-1).join('/')
-    const category = paths[1]
-    let index = this.props.params.index || 1
-    if (index>images[category].length){
-      index = 1
-    }
     return {
       images: images[category],
       image: images[category][index-1],

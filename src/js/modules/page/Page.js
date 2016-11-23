@@ -19,8 +19,8 @@ const content = {
 
 require('./styles.scss')
 
-const Page = ({location}) => {
-  const category = location.pathname.split('/')[1]
+const Page = ({params}) => {
+  const {category} = params
   return (
     <div className="content">
       <div className="content-image">
