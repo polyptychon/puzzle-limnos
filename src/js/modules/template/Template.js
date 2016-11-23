@@ -7,6 +7,8 @@ import OfflineUpdate, {offlineProps}  from '../offline-update'
 require('./styles.scss')
 require('./template.scss')
 
+const {data} = require('../data')
+
 const images = [
   require('./images/laikes_general_image.jpg'),
   require('./images/astikes_general_image.jpg')
@@ -14,7 +16,10 @@ const images = [
 
 const Template = ({ children, location, params })=> {
   const {lang, category} = params
-  const buttonLabel = category?'Έναρξη':'Επιλογή'
+  const buttonLabel = category ?
+    data[lang]['button-start-label'] :
+    data[lang]['button-select-label']
+
   const buttonLink = category?'/puzzle':''
   const pageContentClass = category?'':'empty'
   const pageContainerClass = location.pathname.split('/').join(' ')
@@ -24,9 +29,11 @@ const Template = ({ children, location, params })=> {
       <div className="container">
         <div className="pages">
           <div className={`page-container ${pageContainerClass}`}>
-            <Panel title="Λαϊκές" position="left" image={images[0]}
+            <Panel title={data[lang].laikes.title} subtitle={data[lang].laikes.subtitle}
+              position="left" image={images[0]}
               buttonLabel={buttonLabel} link={`${lang}/laikes${buttonLink}`}/>
-            <Panel title="Αστικές" position="right" image={images[1]}
+            <Panel title={data[lang].astikes.title}  subtitle={data[lang].astikes.subtitle}
+              position="right" image={images[1]}
               buttonLabel={buttonLabel} link={`${lang}/astikes${buttonLink}`}/>
           </div>
           <ReactCSSTransitionGroup

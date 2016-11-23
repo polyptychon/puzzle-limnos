@@ -5,6 +5,8 @@ import {checkPuzzlePartPosition, initAndShufflePuzzle} from '../actions'
 import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 
 require('./styles.scss')
+
+const {data} = require('../../data')
 const images = {
   astikes: [
     require('./images/astikes_image1.jpg'),
@@ -36,7 +38,8 @@ export class Puzzle extends Component {
     }
   }
   render() {
-    const {parts, partClick, isPuzzleSolved} = this.props
+    const {parts, partClick, isPuzzleSolved, params} = this.props
+    const {lang} = params
     const {image,index,path,images} = this.getImage()
     return (
       <div className="game page">
@@ -54,12 +57,12 @@ export class Puzzle extends Component {
           </ul>
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
-              <h2>Συγχαρητήρια τα κατάφερες!</h2>
-              <h3>Να δούμε πως θα τα πας με τα πιο δύσκολα</h3>
+              <h2>{data[lang]["puzzle-complete-title"]}</h2>
+              <h3>{data[lang]["puzzle-complete-subtitle"]}</h3>
             </div>
             <div className="puzzle-complete-group">
-              <Link to="/" className="btn puzzle-go-home">Επιστροφή στην αρχική</Link>
-              {index<images.length && <Link to={path+'/'+(index+1)} className="btn puzzle-next">Συνέχισε στην επόμενη</Link>}
+              <Link to="/" className="btn puzzle-go-home">{data[lang]["button-puzzle-home-label"]}</Link>
+              {index<images.length && <Link to={path+'/'+(index+1)} className="btn puzzle-next">{data[lang]["button-puzzle-next-label"]}</Link>}
             </div>
           </div>
         </div>
