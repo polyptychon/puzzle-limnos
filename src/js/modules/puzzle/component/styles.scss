@@ -37,35 +37,46 @@ $h: 196px;
     }
   }
 }
-.restart-puzzle {
-  width: 100px;
-  height: 1em;
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  text-align: center;
-  padding: 80px 40px;
-  background: green;
-  color: white;
-  font-size: 20px;
-  top: 50%;
-  left: 50%;
-  margin: -90px 0 0 -90px;
-  text-decoration: none;
-  box-shadow: 0 0 8px #000;
+.puzzle-complete {
   display: none;
-  &:active {
-    box-shadow: 0 0 0px #000;
+  width: 800px;
+  height: 500px;
+  text-align: center;
+  color: white;
+  padding-top: 100px;
+  h2, h3 {
+    font-weight: normal;
   }
-  &:hover {
-    background: darken(green, 10%);
+  h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  h3 {
+    font-size: 21px;
+    margin-bottom: 40px;
+  }
+  .btn {
+    transition: all .3s ease-out;
+    border-radius: 0;
+    padding: 12px 25px;
+    background-color: #323232;
+    border: none;
+    font-size: 15px;
+    color: white;
+    text-decoration: none !important;
+    &:first-child {
+      margin-right: 15px;
+    }
+    &:hover {
+      background-color: #000;
+    }
   }
 }
 .solved {
-  .puzzle-container * {
+  .puzzle-container {
     display: none;
   }
-  .restart-puzzle {
+  .puzzle-complete {
     display: block;
   }
 }
