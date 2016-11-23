@@ -6,6 +6,7 @@ const Panel = (props)=> {
   return (
     <div className={`${position}-panel`}>
       <div className="bg" style={{backgroundImage:`url(${image})`}}/>
+      <h4>{title} {subtitle}</h4>
       <div className="title">
         <h1>{title}</h1>
         <hr/>

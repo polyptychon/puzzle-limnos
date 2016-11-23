@@ -58,13 +58,22 @@
   }
 }
 h1, h5 {
-  transition: all .3s ease-out;
   text-align: center;
   font-weight: normal;
   margin: 0;
 }
 h1 {
   font-size: 60px;
+}
+h4 {
+  position: absolute;
+  left: 40px;
+  top: 5px;
+  color: white;
+  font-size: 21px;
+  font-weight: normal;
+  opacity: 0;
+  transition: all .3s ease-out;
 }
 h5 {
   font-size: 24px;
@@ -75,9 +84,14 @@ h5 {
     width: 100%;
     h1 {
       transform: scale(.4) translate(-100%, -700%);
+      opacity: 0;
+    }
+    h4 {
+      opacity: 1;
     }
     h5 {
       transform: translate(-28.5%, -980%);
+      opacity: 0;
     }
     hr {
       transform: translateY(-22500%) scaleX(.9);
@@ -107,9 +121,14 @@ h5 {
     width: 100%;
     h1 {
       transform: scale(.4) translate(-100%, -700%);
+      opacity: 0;
+    }
+    h4 {
+      opacity: 1;
     }
     h5 {
       transform: translate(-28%, -980%);
+      opacity: 0;
     }
     hr {
       transform: translateY(-22500%) scaleX(.91);
