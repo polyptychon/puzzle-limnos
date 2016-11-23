@@ -26,15 +26,12 @@ export class Puzzle extends Component {
     this.props.shufflePuzzle()
   }
   getImage() {
-    const {location} = this.props
-    const {category, index} = this.props.params
-    const paths = location.pathname.split('/')
-    const path = paths.slice(0,paths.length-1).join('/')
+    const {lang, category, index} = this.props.params
     return {
       images: images[category],
       image: images[category][index-1],
       index: parseInt(index),
-      path
+      path: `${lang}/${category}/puzzle`
     }
   }
   render() {
@@ -64,8 +61,8 @@ export class Puzzle extends Component {
               {index===images.length && <br/> }
             </div>
             <div className="puzzle-complete-group">
-              <Link to="/" className="btn puzzle-go-home">{data[lang]["button-puzzle-home-label"]}</Link>
-              {index<images.length && <Link to={path+'/'+(index+1)} className="btn puzzle-next">{data[lang]["button-puzzle-next-label"]}</Link>}
+              <Link to={`/${lang}`} className="btn puzzle-go-home">{data[lang]["button-puzzle-home-label"]}</Link>
+              {index<images.length && <Link to={`${path}/${index+1}`} className="btn puzzle-next">{data[lang]["button-puzzle-next-label"]}</Link>}
             </div>
           </div>
         </div>
