@@ -90,6 +90,11 @@ h5 {
       bottom: 60px;
     }
   }
+  &.en .left-panel {
+    h5 {
+      transform: translate(-29.5%, -980%);
+    }
+  }
   .right-panel {
     width: 0;
   }
@@ -115,6 +120,11 @@ h5 {
     .btn {
       right: -310px;
       bottom: 60px;
+    }
+  }
+  &.en .right-panel {
+    h5 {
+      transform: translate(-30.5%, -980%);
     }
   }
 }

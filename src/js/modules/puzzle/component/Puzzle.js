@@ -57,8 +57,11 @@ export class Puzzle extends Component {
           </ul>
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
+              {index===images.length && <br/> }
+              {index===images.length && <br/> }
               <h2>{data[lang]["puzzle-complete-title"]}</h2>
-              <h3>{data[lang]["puzzle-complete-subtitle"]}</h3>
+              {index<images.length && <h3>{data[lang]["puzzle-complete-subtitle"]}</h3> }
+              {index===images.length && <br/> }
             </div>
             <div className="puzzle-complete-group">
               <Link to="/" className="btn puzzle-go-home">{data[lang]["button-puzzle-home-label"]}</Link>
