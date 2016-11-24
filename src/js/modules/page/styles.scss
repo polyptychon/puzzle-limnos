@@ -1,9 +1,15 @@
 .content-text {
   position: absolute;
-  width: 59%;
-  left: 35%;
+  width: 62%;
+  left: 32%;
   top: 30px;
   color: white;
+  strong {
+    text-decoration: underline;
+    &.type {
+      text-decoration: none;
+    }
+  }
 }
 .content-image {
   position: absolute;
