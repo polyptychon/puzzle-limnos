@@ -89,10 +89,11 @@ $h: 196px;
 }
 
 .game {
+  position: absolute;
+  top: 0;
+  left: 0;
   &.top-enter {
     opacity: 0;
-    transition: all .5s;
-    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
   }
 
   &.top-enter.top-enter-active {
@@ -101,8 +102,6 @@ $h: 196px;
 
   &.top-leave {
     opacity: 1;
-    transition: all .1s;
-    transition-timing-function: cubic-bezier(.445,.05,.55,.95);
   }
 
   &.top-leave.top-leave-active {

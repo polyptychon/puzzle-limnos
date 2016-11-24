@@ -7,17 +7,6 @@ import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 require('./styles.scss')
 
 const {data} = require('../../data')
-const images = {
-  astikes: [
-    require('./images/astikes_image1.jpg'),
-    require('./images/astikes_image2.jpg'),
-    require('./images/astikes_image3.jpg')
-  ],
-  laikes: [
-    require('./images/laikes_image1.jpg'),
-    require('./images/laikes_image2.jpg')
-  ]
-}
 export class Puzzle extends Component {
   constructor(props) {
     super(props);
@@ -28,10 +17,10 @@ export class Puzzle extends Component {
   getImage() {
     const {lang, category, index} = this.props.params
     return {
-      images: images[category],
-      image: images[category][index-1],
+      images: data[lang][category].images,
+      image: data[lang][category].images[index-1],
       index: parseInt(index),
-      path: `${lang}/${category}/puzzle`
+      path: `/${lang}/${category}/puzzle`
     }
   }
   render() {
