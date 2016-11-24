@@ -17,7 +17,7 @@ const data = {
     "button-puzzle-home-label": "Επιστροφή στην αρχική",
     "button-puzzle-next-label": "Συνέχισε στην επόμενη",
     "puzzle-complete-title": "Συγχαρητήρια τα κατάφερες!",
-    "puzzle-complete-subtitle": "Να δούμε πως θα τα πας με τα πιο δύσκολα",
+    "puzzle-complete-subtitle": "Προσπάθησε ξανά με διαφορετική εικόνα",
     "laikes": {
       "title": "Λαϊκές",
       "subtitle": "κατοικίες",
