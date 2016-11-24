@@ -5,6 +5,7 @@ import Panel from '../panel'
 import OfflineUpdate, {offlineProps}  from '../offline-update'
 
 require('./styles.scss')
+require('./fonts.scss')
 require('./template.scss')
 
 const {data} = require('../data')

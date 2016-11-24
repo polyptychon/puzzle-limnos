@@ -26,7 +26,7 @@ module.exports = env => {
     }
     return obj;
   }
-  const assetsPath = env.prod?'/assets/':'/'
+  const assetsPath = env.prod?'./assets/':'./'
   const indexPath = env.prod?'../':''
   return removeEmpty({
     entry: removeEmpty({
@@ -53,8 +53,8 @@ module.exports = env => {
         ifDev({test: /\.scss$/,  loaders: ["style", "css", "sass?sourceMap"]}),
         // ifProd({test: /\.css$/,   loader: ExtractTextPlugin.extract("style-loader", "css-loader")}),
         ifProd({test: /\.scss$/,  loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}),
-        {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff"},
-        {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"},
+        {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=100000&minetype=application/font-woff"},
+        {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=100000&minetype=application/font-woff"},
         {test: /\.(jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=15000"},
         {test: /\.(png|gif|mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"},
         ifProd({ test: /\.js$/, loader: "strip-loader?strip[]=console.log" })

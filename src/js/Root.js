@@ -1,11 +1,11 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import {Template, DummyPage, Puzzle, Page} from './modules'
-import {Router, Route, IndexRoute, IndexRedirect, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 
 const Root = ({store})=> (
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={Template.default}>
         <IndexRedirect to="el" />
         <Route path=":lang">
