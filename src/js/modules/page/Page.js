@@ -1,10 +1,5 @@
 import React from 'react'
 const {data} = require('../data')
-const images = {
-  laikes: require('./images/laikes_katopsi.png'),
-  astikes: require('./images/astikes_katopsi.png')
-}
-
 require('./styles.scss')
 
 const Page = ({params}) => {
@@ -13,7 +8,7 @@ const Page = ({params}) => {
   return (
     <div className="content">
       <div className="content-image">
-        <img src={images[category]} />
+        <img src={data[lang][category].katopsi} />
       </div>
       <div className="content-text" dangerouslySetInnerHTML={{__html: description}}></div>
     </div>
