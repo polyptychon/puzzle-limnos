@@ -1,11 +1,13 @@
 const imagesLaikes = [
   require('./images/laikes_image1.jpg'),
-  require('./images/laikes_image2.jpg')
+  require('./images/laikes_image2.jpg'),
+  require('./images/laikes_image3.jpg')
 ]
 const imagesAstikes = [
   require('./images/astikes_image1.jpg'),
   require('./images/astikes_image2.jpg'),
-  require('./images/astikes_image3.jpg')
+  require('./images/astikes_image3.jpg'),
+  require('./images/astikes_image4.jpg')
 ]
 const katopsiLaikes = require('./images/laikes_katopsi.png')
 const katopsiAstikes = require('./images/astikes_katopsi.png')
