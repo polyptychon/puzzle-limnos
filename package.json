@@ -44,6 +44,8 @@
     "cpy-cli": "1.0.1",
     "css-loader": "0.23.1",
     "electron": "^1.4.8",
+    "electron-packager": "^8.3.0",
+    "electron-prebuilt": "^1.4.8",
     "eslint": "2.13.1",
     "eslint-config-kentcdodds": "6.2.1",
     "eslint-import-resolver-webpack": "0.3.1",
@@ -99,6 +101,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "webpack --env.prod",
+    "build:electron": "electron-packager . --platform=darwin,win32 --ignore=node_modules,.gitignore,src,webpack.config.js,webpack-records.json,server.js,yarn.lock,firebase.json,database.rules.json --out=app --version-string.CompanyName=\"Polyptychon\"",
     "postbuild": "sed 's/\\.\\//assets\\//g;s/assets\\/\\.assets//g;' dist/assets/sw.js > dist/sw.js",
     "build:dev": "webpack --env.dev",
     "start": "node server",
