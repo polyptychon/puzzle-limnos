@@ -1,12 +1,43 @@
+html {
+  width: 100%;
+  height: 100%;
+}
 body {
   margin: 0;
+  transition: all .5s ease-out;
+  width: 100%;
+  height: 100%;
+  display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
+  justify-content: center;
+  &, &.laikes-bg {
+    background-color: #a6794b;
+  }
+  &.astikes-bg {
+    background-color: #3b8fbf;
+  }
+}
+#root {
+  width: 800px;
+  height: 600px;
+}
+.laikes-bg .container, .laikes-bg .page-container {
+  background-color: #a6794b;
+}
+.astikes-bg .container, .astikes-bg .page-container {
+  background-color: #3b8fbf;
 }
 .container {
   font-family: "ProximaNova", Arial, 'sans-serif';
-  width: 800px;
-  height: 600px;
   padding: 0;
-  margin: 0 auto;
+  // margin: 0 auto;
   background: white;
   position: relative;
 }
