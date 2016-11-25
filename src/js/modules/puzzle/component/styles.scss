@@ -36,6 +36,9 @@ $h: 196px;
       pointer-events: none;
     }
   }
+  &.hide-parts li {
+    display: none;
+  }
 }
 .puzzle-complete {
   display: none;
@@ -105,7 +108,12 @@ $h: 196px;
     &.back {
       position: relative;
       top: 37px;
-      left: 495px;
+      left: 325px;
+    }
+    &.toggle-image {
+      position: relative;
+      top: 37px;
+      left: 100px;
     }
     &:first-child {
       margin-right: 15px;

@@ -3,13 +3,16 @@ import  {
   PUZZLE_PART_POSITION,
   IS_PUZZLE_SOLVED,
   SHUFFLE_PUZZLE,
-  INIT_PUZZLE
+  INIT_PUZZLE,
+  SHOW_IMAGE,
+  HIDE_IMAGE
 } from './actionTypes'
 import PuzzleParts from './PuzzleParts'
 
 const p = new PuzzleParts()
 export const INITIAL_STATE = {
   ...p.initParts(),
+  show: false,
   isPuzzleSolved: false
 }
 
@@ -30,6 +33,16 @@ export default function reducer(state = INITIAL_STATE, action) {
       return {
         ...p.initParts(),
         isPuzzleSolved: false
+      }
+    case SHOW_IMAGE:
+      return {
+        ...state,
+        show: true
+      }
+    case HIDE_IMAGE:
+      return {
+        ...state,
+        show: false
       }
     case SHUFFLE_PUZZLE:
       return {

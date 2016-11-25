@@ -2,7 +2,9 @@ import  {
   PUZZLE_PART_POSITION,
   IS_PUZZLE_SOLVED,
   SHUFFLE_PUZZLE,
-  INIT_PUZZLE
+  INIT_PUZZLE,
+  SHOW_IMAGE,
+  HIDE_IMAGE
 } from './actionTypes'
 
 export function delay(time) {
@@ -33,6 +35,12 @@ export const shufflePuzzle = ()=> ({
   type: SHUFFLE_PUZZLE
 });
 
+export const showImage = ()=> ({
+  type: SHOW_IMAGE
+});
+export const hideImage = ()=> ({
+  type: HIDE_IMAGE
+});
 
 export function initAndShufflePuzzle() {
   return dispatch => {

@@ -1,7 +1,7 @@
 import React, {Component,PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {checkPuzzlePartPosition, initAndShufflePuzzle} from '../actions'
+import {checkPuzzlePartPosition, initAndShufflePuzzle, showImage, hideImage} from '../actions'
 import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 
 require('./styles.scss')
@@ -27,13 +27,14 @@ export class Puzzle extends Component {
     }
   }
   render() {
-    const {parts, partClick, isPuzzleSolved, params} = this.props
+    const {parts, partClick, isPuzzleSolved, params, showImage, hideImage, show} = this.props
     const {lang} = params
     const {image,index,path,images} = this.getImage()
     return (
       <div className="game page">
         <div className={isPuzzleSolved?'solved':''}>
-          <ul className="puzzle-container" style={getBgImageStyles(isPuzzleSolved, image)}>
+          <ul className={show?"puzzle-container hide-parts":"puzzle-container"}
+            style={getBgImageStyles(isPuzzleSolved || show, image)}>
             {
               parts.map((part,index)=> (
                 <li key={index} style={getStyles(part, image)} className={part.empty?'empty':''}>
@@ -44,6 +45,8 @@ export class Puzzle extends Component {
               ))
             }
           </ul>
+          <a href="javascript:" onMouseDown={()=>showImage()} onMouseUp={()=>hideImage()}
+            className="btn toggle-image">{data[lang]['button-puzzle-toggle-image-label']}</a>
           <Link to={`/${lang}`} className="btn back">{data[lang]['button-puzzle-home-label']}</Link>
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
@@ -66,15 +69,20 @@ export class Puzzle extends Component {
 
 Puzzle.propTypes = {
   isPuzzleSolved: PropTypes.bool.isRequired,
+  show: PropTypes.bool.isRequired,
   parts: PropTypes.array.isRequired,
   shufflePuzzle: PropTypes.func,
-  partClick: PropTypes.func
+  partClick: PropTypes.func,
+  showImage: PropTypes.func,
+  hideImage: PropTypes.func
 }
 
 export const mapStateToProps = ({ puzzle } ) => puzzle;
 export const mapDispatchToProps = (dispatch) => ({
-  partClick: index => dispatch(checkPuzzlePartPosition(index)),
-  shufflePuzzle: ()=> dispatch(initAndShufflePuzzle())
+  partClick    : index => dispatch(checkPuzzlePartPosition(index)),
+  shufflePuzzle: ()=> dispatch(initAndShufflePuzzle()),
+  showImage    : ()=> dispatch(showImage()),
+  hideImage    : ()=> dispatch(hideImage())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Puzzle)
