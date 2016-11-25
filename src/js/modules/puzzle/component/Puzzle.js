@@ -41,6 +41,7 @@ export class Puzzle extends Component {
               ))
             }
           </ul>
+          <Link to={`/${lang}`} className="btn back">{data[lang]['button-puzzle-home-label']}</Link>
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
               {index===images.length && <br/> }

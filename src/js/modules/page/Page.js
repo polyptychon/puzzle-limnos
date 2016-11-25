@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 const {data} = require('../data')
 require('./styles.scss')
 
@@ -11,6 +12,7 @@ const Page = ({params}) => {
         <img src={data[lang][category].katopsi} />
       </div>
       <div className="content-text" dangerouslySetInnerHTML={{__html: description}}></div>
+      <Link to={`/${lang}`} className="btn back">{data[lang]['button-puzzle-home-label']}</Link>
     </div>
   )
 }

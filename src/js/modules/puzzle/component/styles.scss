@@ -92,6 +92,29 @@ $h: 196px;
   position: absolute;
   top: 0;
   left: 0;
+
+  .btn {
+    transition: all .3s ease-out;
+    border-radius: 0;
+    padding: 12px 25px;
+    background-color: #323232;
+    border: none;
+    font-size: 15px;
+    color: white;
+    text-decoration: none !important;
+    &.back {
+      position: relative;
+      top: 37px;
+      left: 495px;
+    }
+    &:first-child {
+      margin-right: 15px;
+    }
+    &:hover {
+      background-color: #000;
+    }
+  }
+
   &.top-enter {
     opacity: 0;
   }
