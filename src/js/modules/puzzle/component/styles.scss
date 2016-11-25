@@ -114,6 +114,9 @@ $h: 196px;
       background-color: #000;
     }
   }
+  .solved > .btn {
+    display: none;
+  }
 
   &.top-enter {
     opacity: 0;
