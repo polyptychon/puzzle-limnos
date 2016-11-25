@@ -24,15 +24,19 @@ export default function reducer(state = INITIAL_STATE, action) {
         parts: p.changeParts(action.part),
         emptyIndex: p.emptyIndex
       }
-    case IS_PUZZLE_SOLVED:
+    case IS_PUZZLE_SOLVED: {
+      const isPuzzleSolved = p.isPuzzleSolved()
       return {
         ...state,
-        isPuzzleSolved: p.isPuzzleSolved()
+        show: isPuzzleSolved,
+        isPuzzleSolved: isPuzzleSolved
       }
+    }
     case INIT_PUZZLE:
       return {
         ...p.initParts(),
-        isPuzzleSolved: false
+        isPuzzleSolved: false,
+        show: false
       }
     case SHOW_IMAGE:
       return {
@@ -48,7 +52,8 @@ export default function reducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         parts: p.shuffle(),
-        isPuzzleSolved: false
+        isPuzzleSolved: false,
+        show: false
       }
     default:
       return {
