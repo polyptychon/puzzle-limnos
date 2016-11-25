@@ -12,6 +12,9 @@ export class Puzzle extends Component {
     super(props);
   }
   componentWillMount() {
+    const {category} = this.props.params
+    const body = document.querySelector('body')
+    body.classList.add(`${category}-bg`)
     this.props.shufflePuzzle()
   }
   getImage() {
