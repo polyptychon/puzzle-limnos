@@ -16,12 +16,13 @@ const data = {
   "el": {
     "button-select-label": "Επιλογή",
     "button-start-label": "Έναρξη",
-    "button-puzzle-choose": "Επιλογή Εικόνας",
+    "button-puzzle-choose": "Διάλεξε Εικόνα",
     "button-puzzle-home-label": "Επιστροφή στην αρχική",
     "button-puzzle-toggle-image-label": "Εμφάνιση εικόνας",
     "button-puzzle-next-label": "Συνέχισε στην επόμενη",
     "puzzle-complete-title": "Συγχαρητήρια τα κατάφερες!",
     "puzzle-complete-subtitle": "Προσπάθησε ξανά με διαφορετική εικόνα",
+    "puzzle-instructions": "Διάλεξε είδος κατοικίας ανάλογα με τις προτιμήσεις σου, ταξινόμησε τα μπερδεμένα στοιχεία της εικόνας και ανακάλυψε την εντυπωσιακή τους μορφή.",
     "laikes": {
       "title": "Λαϊκές",
       "subtitle": "κατοικίες",
@@ -46,6 +47,7 @@ const data = {
     "button-puzzle-next-label": "Next Puzzle",
     "puzzle-complete-title": "Congratulations you did it!",
     "puzzle-complete-subtitle": "Try next Puzzle!",
+    "puzzle-instructions": "Choose type of residence according to your preferences, grade the tangled image details and finally discover –if you succeed- their impressive form.",
     "laikes": {
       "title": "Popular",
       "subtitle": "houses",

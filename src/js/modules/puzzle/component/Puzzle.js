@@ -47,6 +47,7 @@ export class Puzzle extends Component {
           </ul>
           <a href="javascript:" onMouseDown={()=>showImage()} onMouseUp={()=>hideImage()}
             className="btn toggle-image">{data[lang]['button-puzzle-toggle-image-label']}</a>
+          <div className="puzzle-instructions">{data[lang]['puzzle-instructions']}</div>  
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
               {index===images.length && <br/> }
