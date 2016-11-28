@@ -47,7 +47,7 @@ const data = {
     "button-puzzle-next-label": "Next Puzzle",
     "puzzle-complete-title": "Congratulations you did it!",
     "puzzle-complete-subtitle": "Try next Puzzle!",
-    "puzzle-instructions": "Grade the tangled image details and finally discover –if you succeed- their impressive form.",
+    "puzzle-instructions": "Grade the tangled image details and discover their impressive form.",
     "laikes": {
       "title": "Popular",
       "subtitle": "houses",
