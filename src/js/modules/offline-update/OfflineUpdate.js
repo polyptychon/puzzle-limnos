@@ -7,7 +7,7 @@ class OfflineUpdate extends Component {
     super(props);
     this.state = {
       status: '',
-      message: "Quiz has been updated.",
+      message: "Puzzle has been updated.",
       hidden: true
     }
     if (props.NODE_ENV!=='production') { //eslint-disable-line
