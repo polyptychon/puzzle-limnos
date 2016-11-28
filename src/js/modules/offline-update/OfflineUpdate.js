@@ -50,7 +50,7 @@ class OfflineUpdate extends Component {
     console.log("onUpdateFailed")
     this.setState({
       ...this.state,
-      message: "Quiz has not been updated.",
+      message: "Puzzle has not been updated.",
       status: 'update-failed',
       hidden: false
     })
@@ -59,7 +59,7 @@ class OfflineUpdate extends Component {
     this.setState({
       ...this.state,
       status: 'updated',
-      message: "Quiz has been updated.",
+      message: "Puzzle has been updated.",
       hidden: false
     })
   }
