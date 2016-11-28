@@ -75,8 +75,17 @@ $h: 196px;
     }
   }
 }
+.puzzle-instructions {
+  color: white;
+  font-size: 14px;
+  margin: 10px 100px 0 300px;
+}
+
 .solved {
   .puzzle-container {
+    display: none;
+  }
+  .puzzle-instructions {
     display: none;
   }
   .puzzle-complete {
@@ -141,9 +150,4 @@ $h: 196px;
   &.top-leave.top-leave-active {
     opacity: 0;
   }
-}
-.puzzle-instructions {
-  color: white;
-  font-size: 14px;
-  margin: 5px 100px 0 300px;
 }
