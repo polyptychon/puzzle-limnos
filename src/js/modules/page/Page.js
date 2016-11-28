@@ -18,7 +18,6 @@ class Page extends Component {
           <img src={data[lang][category].katopsi} />
         </div>
         <div className="content-text" dangerouslySetInnerHTML={{__html: description}}></div>
-        <Link to={`/${lang}`} className="btn back">{data[lang]['button-puzzle-home-label']}</Link>
       </div>
     )
   }

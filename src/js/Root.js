@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import {Template, DummyPage, Puzzle, Page} from './modules'
+import {Template, DummyPage, Puzzle, ChoosePuzzle, Page} from './modules'
 import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 
 const Root = ({store})=> (
@@ -12,8 +12,8 @@ const Root = ({store})=> (
         <IndexRoute component={DummyPage.default}/>
           <Route path=":category">
             <IndexRoute component={Page.default}/>
-            <Route path="puzzle" component={Puzzle.default}>
-              <IndexRedirect to="1" />
+            <Route path="puzzle">
+              <IndexRoute component={ChoosePuzzle.default}/>
               <Route path=":index" component={Puzzle.default} />
             </Route>
           </Route>

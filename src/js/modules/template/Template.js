@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Panel from '../panel'
@@ -30,6 +31,15 @@ const Template = ({ children, location, params })=> {
       <div className="container">
         <div className="pages">
           <div className={`page-container ${pageContainerClass}`}>
+            <div className="navigation-panel">
+              <a href="javascript:" onClick={()=>window.history.back()}>
+                <span className="icon-left-open" />
+              </a>
+              <Link to="/"><span className="icon-home" /></Link>
+              <a href="javascript:" onClick={()=>window.history.forward()}>
+                <span className="icon-right-open" />
+              </a>
+            </div>
             <Panel title={data[lang].laikes.title} subtitle={data[lang].laikes.subtitle}
               position="left" image={images[0]}
               buttonLabel={buttonLabel} link={`${lang}/laikes${buttonLink}`}/>

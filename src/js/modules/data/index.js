@@ -16,6 +16,7 @@ const data = {
   "el": {
     "button-select-label": "Επιλογή",
     "button-start-label": "Έναρξη",
+    "button-puzzle-choose": "Επιλογή Puzzle",
     "button-puzzle-home-label": "Επιστροφή στην αρχική",
     "button-puzzle-toggle-image-label": "Εμφάνιση εικόνας",
     "button-puzzle-next-label": "Συνέχισε στην επόμενη",
@@ -39,6 +40,7 @@ const data = {
   "en": {
     "button-select-label": "Select",
     "button-start-label": "Start",
+    "button-puzzle-choose": "Choose Puzzle",
     "button-puzzle-home-label": "Back to Home",
     "button-puzzle-toggle-image-label": "Show Image",
     "button-puzzle-next-label": "Next Puzzle",
