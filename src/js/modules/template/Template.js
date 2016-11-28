@@ -35,7 +35,7 @@ const Template = ({ children, location, params })=> {
               <a href="javascript:" onClick={()=>window.history.back()}>
                 <span className="icon-left-open" />
               </a>
-              <Link to="/"><span className="icon-home" /></Link>
+              <Link to={`/${lang}`}><span className="icon-home" /></Link>
               <a href="javascript:" onClick={()=>window.history.forward()}>
                 <span className="icon-right-open" />
               </a>
