@@ -107,7 +107,7 @@
     "fix-sw": "sed 's/\\.\\//assets\\//g;s/assets\\/\\.assets//g;' dist/assets/sw.js > dist/sw.js",
     "build:dev": "webpack --env.dev",
     "start": "node server",
-    "optimize-images": "imageoptim -d dist/assets",
+    "optimize-images": "imageoptim -a -d dist/assets",
     "start:electron": "electron .",
     "prod": "NODE_ENV=production node server",
     "test": "jest",
