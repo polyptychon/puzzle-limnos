@@ -2731,7 +2731,7 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   dependencies:
     bser "^1.0.2"
 
-fbjs@^0.8.0:
+fbjs@^0.8.0, fbjs@^0.8.4:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.6.tgz#7eb67d6986b2d5007a9b6e92e0e7cb6f75cad290"
   dependencies:
@@ -3506,6 +3506,10 @@ inquirer@^0.12.0:
 interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
+
+intl@^1.2:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
 invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1:
   version "2.2.2"
@@ -4716,6 +4720,10 @@ mksnapshot@^0.3.0:
     fs-extra "0.26.7"
     request "2.55.0"
 
+moment@^2.13.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.0.tgz#a4c292e02aac5ddefb29a6eed24f51938dd3b74f"
+
 moment@2.x.x:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.16.0.tgz#f38f2c97c9889b0ee18fc6cc392e1e443ad2da8e"
@@ -5906,12 +5914,26 @@ react-dom@15.1.0:
   version "15.1.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.1.0.tgz#d0c2b24c8b47a41a2b9ec766662d4e686f353153"
 
+react-i18nify@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-i18nify/-/react-i18nify-1.6.0.tgz#ee31420c95f2a1269ab5f99a7044ce8133bda84c"
+  dependencies:
+    intl "^1.2"
+    moment "^2.13.0"
+    react "^15.1.0"
+
 react-proxy@^1.1.0, react-proxy@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
+
+react-redux-i18n:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-redux-i18n/-/react-redux-i18n-0.1.1.tgz#0569b4a4fb72eba56c783ff95b555c1a87df3172"
+  dependencies:
+    react-i18nify "1.6.0"
 
 react-redux@4.4.5:
   version "4.4.5"
@@ -5949,6 +5971,14 @@ react-transform-hmr@1.0.0:
   dependencies:
     global "^4.3.0"
     react-proxy "^1.1.0"
+
+react@^15.1.0:
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.1.tgz#498e918602677a3983cd0fd206dfe700389a0dd6"
+  dependencies:
+    fbjs "^0.8.4"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
 
 react@15.1.0:
   version "15.1.0"

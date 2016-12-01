@@ -1,12 +1,12 @@
 import React, {Component,PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
+import { I18n } from 'react-redux-i18n';
 import {checkPuzzlePartPosition, initAndShufflePuzzle, showImage, hideImage} from '../actions'
 import {getStyles, getBgImageStyles, getSizeStyles} from './styles'
 
 require('./styles.scss')
 
-const {data} = require('../../data')
 export class Puzzle extends Component {
   constructor(props) {
     super(props);
@@ -19,16 +19,16 @@ export class Puzzle extends Component {
   }
   getImage() {
     const {lang, category, index} = this.props.params
+    const images = I18n.t(`${category}.images`)
     return {
-      images: data[lang][category].images,
-      image: data[lang][category].images[index-1],
+      images,
+      image: images[index-1],
       index: parseInt(index),
       path: `/${lang}/${category}/puzzle`
     }
   }
   render() {
-    const {parts, partClick, isPuzzleSolved, params, showImage, hideImage, show} = this.props
-    const {lang} = params
+    const {parts, partClick, isPuzzleSolved, showImage, hideImage, show, locale} = this.props
     const {image,index,path,images} = this.getImage()
     return (
       <div className="game page">
@@ -46,19 +46,19 @@ export class Puzzle extends Component {
             }
           </ul>
           <a href="javascript:" onMouseDown={()=>showImage()} onMouseUp={()=>hideImage()}
-            className="btn toggle-image">{data[lang]['button-puzzle-toggle-image-label']}</a>
-          <div className="puzzle-instructions">{data[lang]['puzzle-instructions']}</div>  
+            className="btn toggle-image">{I18n.t("button-puzzle-toggle-image-label")}</a>
+          <div className="puzzle-instructions">{I18n.t("puzzle-instructions")}</div>
           <div className="puzzle-complete">
             <div className="puzzle-complete-message">
               {index===images.length && <br/> }
               {index===images.length && <br/> }
-              <h2>{data[lang]["puzzle-complete-title"]}</h2>
-              {index<images.length && <h3>{data[lang]["puzzle-complete-subtitle"]}</h3> }
+              <h2>{I18n.t("puzzle-complete-title")}</h2>
+              {index<images.length && <h3>{I18n.t("puzzle-complete-subtitle")}</h3> }
               {index===images.length && <br/> }
             </div>
             <div className="puzzle-complete-group">
-              <Link to={`/${lang}`} className="btn puzzle-go-home">{data[lang]["button-puzzle-home-label"]}</Link>
-              {index<images.length && <Link to={`${path}/${index+1}`} className="btn puzzle-next">{data[lang]["button-puzzle-next-label"]}</Link>}
+              <Link to={`/${locale}`} className="btn puzzle-go-home">{I18n.t("button-puzzle-home-label")}</Link>
+              {index<images.length && <Link to={`${path}/${index+1}`} className="btn puzzle-next">{I18n.t("button-puzzle-next-label")}</Link>}
             </div>
           </div>
         </div>
@@ -77,7 +77,12 @@ Puzzle.propTypes = {
   hideImage: PropTypes.func
 }
 
-export const mapStateToProps = ({ puzzle } ) => puzzle;
+export const mapStateToProps = ({ puzzle, i18n } ) => {
+  return {
+    ...puzzle,
+    ...i18n
+  }
+}
 export const mapDispatchToProps = (dispatch) => ({
   partClick    : index => dispatch(checkPuzzlePartPosition(index)),
   shufflePuzzle: ()=> dispatch(initAndShufflePuzzle()),

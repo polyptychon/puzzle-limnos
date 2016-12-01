@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
-const {data} = require('../data')
+import {I18n} from 'react-redux-i18n';
+
 require('./styles.scss')
 
 class ChoosePuzzle extends Component {
@@ -14,10 +15,10 @@ class ChoosePuzzle extends Component {
   }
   render() {
     const {lang,category} = this.props.params
-    const images = data[lang][category].images
+    const images = I18n.t(`${category}.images`)
     return (
       <div className="choose-puzzle">
-        <h3 className="choose-puzzle-label">{data[lang]['button-puzzle-choose']}</h3>
+        <h3 className="choose-puzzle-label">{I18n.t("button-puzzle-choose")}</h3>
         <div className="puzzles">
           {
             images.map((image, index)=> (

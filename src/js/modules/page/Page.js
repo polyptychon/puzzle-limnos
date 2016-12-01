@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
-const {data} = require('../data')
+import {I18n} from 'react-redux-i18n';
 require('./styles.scss')
 
 class Page extends Component {
@@ -10,12 +9,13 @@ class Page extends Component {
     body.classList.add(`${category}-bg`)
   }
   render() {
-    const {lang, category} = this.props.params
-    const description = data[lang][category].description
+    const {category} = this.props.params
+    const description = I18n.t(`${category}.description`)
+    const image_src = I18n.t(`${category}.katopsi`)
     return (
       <div className="content">
         <div className="content-image">
-          <img src={data[lang][category].katopsi} />
+          <img src={image_src} />
         </div>
         <div className="content-text" dangerouslySetInnerHTML={{__html: description}}></div>
       </div>

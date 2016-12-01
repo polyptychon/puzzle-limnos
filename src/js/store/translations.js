@@ -12,7 +12,7 @@ const imagesAstikes = [
 const katopsiLaikes = require('./images/laikes_katopsi.png')
 const katopsiAstikes = require('./images/astikes_katopsi.png')
 
-const data = {
+const translations = {
   "el": {
     "button-select-label": "Επιλογή",
     "button-start-label": "Έναρξη",
@@ -66,5 +66,5 @@ const data = {
 }
 
 export {
-  data
+  translations
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
+import {setLocale} from 'react-redux-i18n';
 import {Template, DummyPage, Puzzle, ChoosePuzzle, Page} from './modules'
 import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 
@@ -7,8 +8,8 @@ const Root = ({store})=> (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Template.default}>
-        <IndexRedirect to="el" />
-        <Route path=":lang">
+        <IndexRedirect to="el"/>
+        <Route path=":lang" onEnter={({params})=>store.dispatch(setLocale(params.lang))}>
         <IndexRoute component={DummyPage.default}/>
           <Route path=":category">
             <IndexRoute component={Page.default}/>

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
+import {I18n} from 'react-redux-i18n';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import Panel from '../panel'
@@ -9,8 +10,6 @@ require('./styles.scss')
 require('./fonts.scss')
 require('./template.scss')
 
-const {data} = require('../data')
-
 const images = [
   require('./images/laikes_general_image.jpg'),
   require('./images/astikes_general_image.jpg')
@@ -19,8 +18,8 @@ const images = [
 const Template = ({ children, location, params })=> {
   const {lang, category} = params
   const buttonLabel = category ?
-    data[lang]['button-start-label'] :
-    data[lang]['button-select-label']
+    I18n.t("button-start-label") :
+    I18n.t("button-select-label")
 
   const buttonLink = category?'/puzzle':''
   const pageContentClass = category?'':'empty'
@@ -40,10 +39,10 @@ const Template = ({ children, location, params })=> {
                 <span className="icon-right-open" />
               </a>
             </div>
-            <Panel title={data[lang].laikes.title} subtitle={data[lang].laikes.subtitle}
+            <Panel title={I18n.t("laikes.title")} subtitle={I18n.t("laikes.subtitle")}
               position="left" image={images[0]}
               buttonLabel={buttonLabel} link={`${lang}/laikes${buttonLink}`}/>
-            <Panel title={data[lang].astikes.title}  subtitle={data[lang].astikes.subtitle}
+            <Panel title={I18n.t("astikes.title")}  subtitle={I18n.t("astikes.subtitle")}
               position="right" image={images[1]}
               buttonLabel={buttonLabel} link={`${lang}/astikes${buttonLink}`}/>
           </div>
