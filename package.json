@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "array-unique": "0.3.2",
-    "classnames": "2.2.5",
-    "isomorphic-fetch": "2.2.1",
     "react": "15.1.0",
     "react-addons-css-transition-group": "^15.4.0",
     "react-dom": "15.1.0",
