@@ -1,5 +1,5 @@
-import Template from './Template'
+import Template from './Template';
 export {
-  Template
-}
-export default Template
+  Template,
+};
+export default Template;

@@ -1,2 +1,2 @@
-import DummyPage from './DummyPage'
-export default DummyPage
+import DummyPage from './DummyPage';
+export default DummyPage;

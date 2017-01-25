@@ -1,3 +1,3 @@
-import Puzzle from './Puzzle'
+import Puzzle from './Puzzle';
 
-export default Puzzle
+export default Puzzle;

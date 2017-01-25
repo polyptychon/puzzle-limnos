@@ -1,29 +1,29 @@
-import React from 'react'
-import {Link} from 'react-router'
-import {I18n} from 'react-redux-i18n';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import React from 'react';
+import { Link, } from 'react-router';
+import { I18n, } from 'react-redux-i18n';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Panel from '../panel'
-import OfflineUpdate, {offlineProps}  from '../offline-update'
+import Panel from '../panel';
+import OfflineUpdate, { offlineProps, }  from '../offline-update';
 
-require('./styles.scss')
-require('./fonts.scss')
-require('./template.scss')
+require('./styles.scss');
+require('./fonts.scss');
+require('./template.scss');
 
 const images = [
   require('./images/laikes_general_image.jpg'),
-  require('./images/astikes_general_image.jpg')
-]
+  require('./images/astikes_general_image.jpg'),
+];
 
-const Template = ({ children, location, params })=> {
-  const {lang, category} = params
+const Template = ({ children, location, params, }) => {
+  const { lang, category, } = params;
   const buttonLabel = category ?
-    I18n.t("button-start-label") :
-    I18n.t("button-select-label")
+    I18n.t('button-start-label') :
+    I18n.t('button-select-label');
 
-  const buttonLink = category?'/puzzle':''
-  const pageContentClass = category?'':'empty'
-  const pageContainerClass = location.pathname.split('/').join(' ')
+  const buttonLink = category ? '/puzzle' : '';
+  const pageContentClass = category ? '' : 'empty';
+  const pageContainerClass = location.pathname.split('/').join(' ');
   return (
     <div>
       <OfflineUpdate {...offlineProps()} />
@@ -31,18 +31,18 @@ const Template = ({ children, location, params })=> {
         <div className="pages">
           <div className={`page-container ${pageContainerClass}`}>
             <div className="navigation-panel">
-              <a href="javascript:" onClick={()=>window.history.back()}>
+              <a href="javascript:" onClick={() => window.history.back()}>
                 <span className="icon-left-open" />
               </a>
               <Link to={`/${lang}`}><span className="icon-home" /></Link>
-              <a href="javascript:" onClick={()=>window.history.forward()}>
+              <a href="javascript:" onClick={() => window.history.forward()}>
                 <span className="icon-right-open" />
               </a>
             </div>
-            <Panel title={I18n.t("laikes.title")} subtitle={I18n.t("laikes.subtitle")}
+            <Panel title={I18n.t('laikes.title')} subtitle={I18n.t('laikes.subtitle')}
               position="left" image={images[0]}
               buttonLabel={buttonLabel} link={`${lang}/laikes${buttonLink}`}/>
-            <Panel title={I18n.t("astikes.title")}  subtitle={I18n.t("astikes.subtitle")}
+            <Panel title={I18n.t('astikes.title')}  subtitle={I18n.t('astikes.subtitle')}
               position="right" image={images[1]}
               buttonLabel={buttonLabel} link={`${lang}/astikes${buttonLink}`}/>
           </div>
@@ -56,13 +56,13 @@ const Template = ({ children, location, params })=> {
             transitionLeaveTimeout={500}>
 
             {React.cloneElement(children, {
-              key: location.pathname
+              key: location.pathname,
             })}
 
           </ReactCSSTransitionGroup>
         </div>
       </div>
     </div>
-  )
-}
-export default Template
+  );
+};
+export default Template;

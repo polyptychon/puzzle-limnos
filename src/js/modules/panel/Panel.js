@@ -1,11 +1,11 @@
-import React from 'react'
-import {Link} from 'react-router'
+import React from 'react';
+import { Link, } from 'react-router';
 
-const Panel = (props)=> {
-  const {image, buttonLabel, link, position, title, subtitle} = props
+const Panel = props => {
+  const { image, buttonLabel, link, position, title, subtitle, } = props;
   return (
     <div className={`${position}-panel`}>
-      <div className="bg" style={{backgroundImage:`url(${image})`}}/>
+      <div className="bg" style={{ backgroundImage:`url(${image})`, }}/>
       <h4>{title} {subtitle}</h4>
       <div className="title">
         <h1>{title}</h1>
@@ -14,7 +14,7 @@ const Panel = (props)=> {
       </div>
       <Link to={`${link}`} className="btn">{buttonLabel}</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Panel
+export default Panel;

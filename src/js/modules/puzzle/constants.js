@@ -1,1 +1,1 @@
-export const NAME = 'puzzle'
+export const NAME = 'puzzle';

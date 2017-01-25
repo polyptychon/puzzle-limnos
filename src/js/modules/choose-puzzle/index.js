@@ -1,2 +1,2 @@
-import ChoosePuzzle from './ChoosePuzzle'
-export default ChoosePuzzle
+import ChoosePuzzle from './ChoosePuzzle';
+export default ChoosePuzzle;
