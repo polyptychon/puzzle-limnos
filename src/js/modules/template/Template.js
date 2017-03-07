@@ -39,6 +39,11 @@ const Template = ({ children, location, params, }) => {
                 <span className="icon-right-open" />
               </a>
             </div>
+            <div className="choose-lang">
+              <Link to={`/${lang === 'en' ? 'el' : 'en'}`}>
+                {lang === 'en' ? 'ΕΛΛΗΝΙΚΑ' : 'ENGLISH'}
+              </Link>
+            </div>
             <Panel title={I18n.t('laikes.title')} subtitle={I18n.t('laikes.subtitle')}
               position="left" image={images[0]}
               buttonLabel={buttonLabel} link={`${lang}/laikes${buttonLink}`}/>

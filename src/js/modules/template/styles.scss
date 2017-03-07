@@ -67,3 +67,18 @@ body {
 .empty {
   pointer-events: none;
 }
+.choose-lang {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+.laikes, .astikes {
+  .choose-lang {
+    display: none;
+  }
+}
